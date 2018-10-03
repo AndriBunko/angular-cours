@@ -9,7 +9,7 @@ function showHello(divName: string, name: string) {
 logFirstAvailable(getAllbooks())
 
 function getAllbooks(): Array<Book> {
-    const books: Array<any> = [
+    let books: Array<any> = [
         {id: 1, title: 'Refactoring JavaScript', author: 'Evan Burchard', available: true, category: Category.JavaScript},
         {id: 2,title: 'JavaScript Testing', author: 'Liang Yuxian Eugene', available: false, category: Category.JavaScript},
         {id: 3,title: 'CSS Secrets', author: 'Lea Verou', available: true, category: Category.CSS},
@@ -39,7 +39,7 @@ const enum Category {
 
 function getBookTitlesByCategory(category: Category): Array<string> {
     let books = getAllbooks();
-    let titles: string[] = new Array();
+    let titles: string[] = [];
     for (let book of  books) {
         if (book.category === category)
             titles.push(book.title);
