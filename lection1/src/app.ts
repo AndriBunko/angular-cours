@@ -5,6 +5,7 @@ function showHello(divName: string, name: string) {
     elt.innerText = `Hello from ${name}`;
 }
 
+// Task 1
 logFirstAvailable(getAllbooks())
 
 function getAllbooks(): Array<any> {
@@ -26,4 +27,13 @@ function logFirstAvailable(books: Array<any>): void {
         }
     }
     console.log(books.length);
+}
+
+//Task2
+enum Category {
+    JavaScript,
+    CSS,
+    HTML,
+    TypeScript,
+    Angular
 }
