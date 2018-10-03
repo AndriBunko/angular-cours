@@ -30,10 +30,25 @@ function logFirstAvailable(books: Array<any>): void {
 }
 
 //Task2
-enum Category {
+const enum Category {
     JavaScript,
     CSS,
     HTML,
     TypeScript,
     Angular
 }
+
+function  getBookTitlesByCategory(category: Category): Array<string> {
+    let books = getAllbooks();
+    let titles: string[] = new Array();
+    for(let book of  books) {
+        if (book.category === category )
+            titles.push(book.title);
+    }
+    return titles;
+}
+
+console.log(getBookTitlesByCategory(Category.JavaScript));
+
+
+
