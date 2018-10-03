@@ -10,10 +10,10 @@ logFirstAvailable(getAllbooks())
 
 function getAllbooks(): Array<any> {
     const books: Array<any> = [
-        {title: 'Refactoring JavaScript', author: 'Evan Burchard', available: true},
-        {title: 'JavaScript Testing', author: 'Liang Yuxian Eugene', available: false},
-        {title: 'CSS Secrets', author: 'Lea Verou', available: true},
-        {title: 'Mastering JavaScript Object-Oriented Programming', author: 'Andrea Chiarelli', available: true}
+        {title: 'Refactoring JavaScript', author: 'Evan Burchard', available: true, category: Category.JavaScript},
+        {title: 'JavaScript Testing', author: 'Liang Yuxian Eugene', available: false, category: Category.JavaScript},
+        {title: 'CSS Secrets', author: 'Lea Verou', available: true, category: Category.CSS},
+        {title: 'Mastering JavaScript Object-Oriented Programming', author: 'Andrea Chiarelli', available: true, category: Category.JavaScript}
     ];
 
     return books;
