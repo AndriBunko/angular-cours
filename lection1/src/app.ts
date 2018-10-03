@@ -65,7 +65,7 @@ function printBook(book: Book) {
     console.log(book.title + ' by ' + book.author)
 }
 
-var myBook: Book = {
+let myBook: Book = {
     id: 5,
     title: 'Colors, Backgrounds, and Gradients',
     author: 'Eric A. Meyer',
