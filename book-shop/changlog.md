@@ -9,7 +9,7 @@
 10)cd ..
 11)ng g s services/book --flat false
 12)ng g s services/cart --flat false
-13)ng g d directives/simpleDirective --spec false
-14)ng g p simplePipe
-15)simple impl of pipe 
+13)ng g d directives/example --spec false
+14)ng g p example
+15)simple impl.. example pipe 
 
