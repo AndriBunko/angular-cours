@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 import {BookModel} from "../../models/book.model";
 
 @Component({
@@ -20,7 +20,8 @@ import {BookModel} from "../../models/book.model";
       margin-bottom: 20px;
       font-family: "Comic Sans MS";
       font-size: 20px;
-    }`]
+    }`],
+  encapsulation: ViewEncapsulation.None
 
 })
 export class BookComponent implements OnInit {
