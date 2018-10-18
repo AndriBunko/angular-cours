@@ -1,8 +1,7 @@
+Buy item
 <p>
   cart works!
 </p>
-Buy item
-<div *ngFor="let item of buyItem">
-  <div>Id:{{item.id}}</div>
-  <div>Name: {{item.name}}</div>
-</div>
+<app-cart-item *ngFor="let item of buyItem"
+          [boughtBook]="item">
+</app-cart-item>

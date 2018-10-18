@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {BookModel} from "../../../products/models/book.model";
+import {CartItemModel} from "../../models/cart-item.model";
 
 @Component({
   selector: 'app-cart-item',
@@ -8,7 +9,7 @@ import {BookModel} from "../../../products/models/book.model";
 })
 export class CartItemComponent implements OnInit {
   @Input()
-  boughtBook: BookModel;
+  boughtBook: CartItemModel;
 
   constructor() {
   }
