@@ -20,4 +20,8 @@ export class BookListComponent implements OnInit {
       new BookModel(3, 'JS')
     ];
   }
+
+  onBuy(book: BookModel): void {
+    console.log(`${book.name}`);
+  }
 }

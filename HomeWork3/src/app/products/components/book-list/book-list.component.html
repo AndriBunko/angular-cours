@@ -4,6 +4,7 @@
     book-list works!
   </p>
   <app-book *ngFor="let book of books"
-            [book]="book">
+            [book]="book"
+            (buy)="onBuy($event)">
   </app-book>
 </div>
