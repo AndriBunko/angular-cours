@@ -1,0 +1,12 @@
+<!--<span style="font-size: 25px">Bought items</span>-->
+<div class="homework2">
+  <p>
+    cart works!
+  </p>
+  <app-cart-item *ngFor="let item of boughtItems"
+                 [boughtBook]="item"
+                 (addQauntity)="onAdd($event)"
+                 (minusQauntity)="onMinus($event)">
+  </app-cart-item>
+  <button>Офомить</button>
+</div>
