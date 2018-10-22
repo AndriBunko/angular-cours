@@ -1,4 +1,4 @@
-import {Injectable, OnInit} from '@angular/core';
+import {Injectable, Input, OnInit} from '@angular/core';
 import {CartItemModel} from '../models/cart-item.model';
 import {BookModel} from '../../products/models/book.model';
 
@@ -11,6 +11,7 @@ export class CartService {
     {'id': 2, 'name': 'Angular', 'price': 200, 'quantity': 15},
     {'id': 3, 'name': 'JS', 'price': 150, 'quantity': 5}
   ];
+
   constructor() {
   }
 
@@ -25,6 +26,8 @@ export class CartService {
     } else {
       this.boughtItems.push(new CartItemModel(book.id, book.name, book.price, book.img, 1));
     }
+    this.updateTotals();
+    this.getTotalsPrice();
   }
 
   delFromCart(item: CartItemModel) {
@@ -42,6 +45,9 @@ export class CartService {
     const index = this.getElementIndex(cartItem);
     console.log(index);
     this.boughtItems[index].quantity -= n;
+    if (this.boughtItems[index].quantity === 0) {
+      this.delFromCart(this.boughtItems[index]);
+    }
   }
 
   public updateTotals(): number {
