@@ -9,5 +9,9 @@
                  (minusQauntity)="onMinus($event)"
                   (delItem)="onDelItem($event)">
   </app-cart-item>
-  <button>Офомить</button>
+  <div>
+    <p>Total price: {{totalPrice}}</p>
+    <p>Total count: {{totalCount}}</p>
+    <button (click)="onCreateOrder($event)">Офомить</button>
+  </div>
 </div>

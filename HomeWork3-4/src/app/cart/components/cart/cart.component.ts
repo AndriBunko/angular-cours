@@ -9,26 +9,40 @@ import {CartService} from '../../services/cart.service';
 })
 export class CartComponent implements OnInit {
   boughtItems: Array<CartItemModel>;
+  totalPrice: number;
+  totalCount: number;
 
-  constructor(private cartService: CartService) {
+  constructor(public cartService: CartService) {
   }
 
   ngOnInit() {
     this.boughtItems = this.cartService.getCartItems();
+    this.totalPrice = this.cartService.getTotalsPrice();
+    this.totalCount = this.cartService.updateTotals();
   }
 
   onDelItem(item: CartItemModel) {
     console.log(`del eitem: ${item.name}`);
     this.cartService.delFromCart(item);
+    this.totalPrice = this.cartService.getTotalsPrice();
+    this.totalCount = this.cartService.updateTotals();
   }
 
   onAdd(item: CartItemModel) {
     console.log(`add qauntity: ${item.name}`);
     this.cartService.incQuantity(item, 1);
+    this.totalPrice = this.cartService.getTotalsPrice();
+    this.totalCount = this.cartService.updateTotals();
   }
 
   onMinus(item: CartItemModel) {
     console.log(`add qauntity: ${item.name}`);
     this.cartService.decQuantity(item, 1);
+    this.totalPrice = this.cartService.getTotalsPrice();
+    this.totalCount = this.cartService.updateTotals();
+  }
+
+  onCreateOrder(event: any) {
+    console.log( this.boughtItems);
   }
 }
