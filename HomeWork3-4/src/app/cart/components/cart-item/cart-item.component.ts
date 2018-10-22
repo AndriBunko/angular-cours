@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {BookModel} from "../../../products/models/book.model";
-import {CartItemModel} from "../../models/cart-item.model";
+import {BookModel} from '../../../products/models/book.model';
+import {CartItemModel} from '../../models/cart-item.model';
 
 @Component({
   selector: 'app-cart-item',
@@ -14,11 +14,18 @@ export class CartItemComponent implements OnInit {
   addQauntity: EventEmitter<CartItemModel> = new EventEmitter<CartItemModel>();
   @Output()
   minusQauntity: EventEmitter<CartItemModel> = new EventEmitter<CartItemModel>();
+  @Output()
+  delItem: EventEmitter<CartItemModel> = new EventEmitter<CartItemModel>();
 
   constructor() {
   }
 
   ngOnInit() {
+  }
+
+  onDelItem(delItem: any) {
+    console.log(`on del: ${this.boughtBook.name}`);
+    this.delItem.emit(this.boughtBook);
   }
 
   onAdd(addQauntity: any) {

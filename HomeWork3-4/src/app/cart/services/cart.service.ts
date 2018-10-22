@@ -34,15 +34,16 @@ export class CartService implements OnInit {
     }
   }
 
-  delFromCart(book: BookModel) {
-    const index = this.getElementIndex(book);
-    this.boughtItems.slice(index, index);
+  delFromCart(item: CartItemModel) {
+    const index = this.getElementIndex(item);
+    this.boughtItems.splice(index, 1);
     this.price = this.getTotalsPrice();
     this.numOfItems = this.updateTotals();
   }
 
   incQuantity(cartItem: CartItemModel, n: number) {
     const index = this.getElementIndex(cartItem);
+    console.log(index);
     this.boughtItems[index].quantity += n;
     this.price = this.getTotalsPrice();
     this.numOfItems = this.updateTotals();
@@ -50,6 +51,7 @@ export class CartService implements OnInit {
 
   decQuantity(cartItem: CartItemModel, n: number) {
     const index = this.getElementIndex(cartItem);
+    console.log(index);
     this.boughtItems[index].quantity -= n;
     this.price = this.getTotalsPrice();
     this.numOfItems = this.updateTotals();

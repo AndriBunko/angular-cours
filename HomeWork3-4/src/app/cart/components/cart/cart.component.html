@@ -6,7 +6,8 @@
   <app-cart-item *ngFor="let item of boughtItems"
                  [boughtBook]="item"
                  (addQauntity)="onAdd($event)"
-                 (minusQauntity)="onMinus($event)">
+                 (minusQauntity)="onMinus($event)"
+                  (delItem)="onDelItem($event)">
   </app-cart-item>
   <button>Офомить</button>
 </div>

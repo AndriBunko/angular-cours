@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {CartItemModel} from '../../models/cart-item.model';
+import {CartService} from '../../services/cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -9,32 +10,25 @@ import {CartItemModel} from '../../models/cart-item.model';
 export class CartComponent implements OnInit {
   boughtItems: Array<CartItemModel>;
 
-  constructor() {
+  constructor(private cartService: CartService) {
   }
 
   ngOnInit() {
-    this.boughtItems = [
-      {'id': 1, 'name': 'Java', 'price': 500, 'quantity': 10},
-      {'id': 2, 'name': 'Angular', 'price': 200, 'quantity': 15},
-      {'id': 3, 'name': 'JS', 'price': 150, 'quantity': 5}
-    ];
+    this.boughtItems = this.cartService.getCartItems();
+  }
+
+  onDelItem(item: CartItemModel) {
+    console.log(`del eitem: ${item.name}`);
+    this.cartService.delFromCart(item);
   }
 
   onAdd(item: CartItemModel) {
     console.log(`add qauntity: ${item.name}`);
-    const index = this.boughtItems.findIndex((p) => p.id === item.id);
-    if (index !== -1) {
-      this.boughtItems[index].quantity++;
-    }
+    this.cartService.incQuantity(item, 1);
   }
 
   onMinus(item: CartItemModel) {
-    console.log(`minus qauntity: ${item.name}`);
-    const index = this.boughtItems.findIndex((it) => it.id === item.id);
-    if (index !== -1) {
-      if (this.boughtItems[index].quantity > 1) {
-        this.boughtItems[index].quantity--;
-      }
-    }
+    console.log(`add qauntity: ${item.name}`);
+    this.cartService.decQuantity(item, 1);
   }
 }
