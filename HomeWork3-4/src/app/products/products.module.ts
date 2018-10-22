@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {BookComponent, BookListComponent} from "./components";
+import {BookComponent, BookListComponent} from './components';
 
 
 @NgModule({

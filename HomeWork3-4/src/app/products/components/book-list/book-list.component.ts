@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {BookModel} from "../../models/book.model";
+import {BookModel} from '../../models/book.model';
+import {BookService} from '../../services/book.service';
 
 @Component({
   selector: 'app-book-list',
@@ -9,16 +10,18 @@ import {BookModel} from "../../models/book.model";
 export class BookListComponent implements OnInit {
 
   public books: Array<BookModel>;
+  public booksP: Promise<Array<BookModel>>;
 
-  constructor() {
+  constructor(private bookService: BookService) {
   }
 
   ngOnInit() {
     this.books = [
-      new BookModel(1, 'Angular'),
-      new BookModel(2, 'Java'),
-      new BookModel(3, 'JS')
+      new BookModel(1, 'Angular', 200),
+      new BookModel(2, 'Java', 500),
+      new BookModel(3, 'JS', 150)
     ];
+    this.booksP = this.bookService.getBooksAsync();
   }
 
   onBuy(book: BookModel): void {
