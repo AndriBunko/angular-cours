@@ -8,8 +8,8 @@ import {resolve} from 'q';
 
 export class BookService  {
   books: Array<BookModel> = [
-    new BookModel(1, 'Angular', 200),
-    new BookModel(2, 'Java', 500),
+    new BookModel(2, 'Angular', 200),
+    new BookModel(1, 'Java', 500),
     new BookModel(3, 'JS', 150)
   ];
 
@@ -17,11 +17,9 @@ export class BookService  {
   }
 
   getBooksAsync(): Promise<Array<BookModel>> {
-    // return new Promise<Array<BookModel>>(() => {
-    //   setTimeout(() => resolve(this.books), 1000);
-    // });
-    console.log('dddddddddddddddddddd');
-    return Promise.resolve(this.books);
+    return new Promise<Array<BookModel>>((resolve, reject) => {
+      setTimeout(() => resolve(this.books), 1000);
+    });
   }
 }
 
