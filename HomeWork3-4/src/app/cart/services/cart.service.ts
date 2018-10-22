@@ -25,24 +25,34 @@ export class CartService implements OnInit {
     const index = this.getElementIndex(book);
     if (index !== -1) {
       this.boughtItems[index].quantity++;
+      this.price = this.getTotalsPrice();
+      this.numOfItems = this.updateTotals();
     } else {
       this.boughtItems.push(new CartItemModel(book.id, book.name, book.price, book.img, 1));
+      this.price = this.getTotalsPrice();
+      this.numOfItems = this.updateTotals();
     }
   }
 
   delFromCart(book: BookModel) {
     const index = this.getElementIndex(book);
     this.boughtItems.slice(index, index);
+    this.price = this.getTotalsPrice();
+    this.numOfItems = this.updateTotals();
   }
 
   incQuantity(cartItem: CartItemModel, n: number) {
     const index = this.getElementIndex(cartItem);
     this.boughtItems[index].quantity += n;
+    this.price = this.getTotalsPrice();
+    this.numOfItems = this.updateTotals();
   }
 
   decQuantity(cartItem: CartItemModel, n: number) {
     const index = this.getElementIndex(cartItem);
     this.boughtItems[index].quantity -= n;
+    this.price = this.getTotalsPrice();
+    this.numOfItems = this.updateTotals();
   }
 
   private updateTotals(): number {
@@ -53,7 +63,7 @@ export class CartService implements OnInit {
     return numOfItems;
   }
 
-  private getPrice() {
+  private getTotalsPrice() {
     let price: number;
     for (const item of this.boughtItems) {
       price += item.quantity * item.price;
@@ -67,6 +77,6 @@ export class CartService implements OnInit {
 
   ngOnInit(): void {
     this.numOfItems = this.updateTotals();
-    this.price = this.getPrice();
+    this.price = this.getTotalsPrice();
   }
 }
