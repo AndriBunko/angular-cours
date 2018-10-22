@@ -1,10 +1,11 @@
-<div  class="inlbl">
+<div class="inlbl">
   <p>
     Cart-item works!
   </p>
   <div class="homework">
     <div>Id:{{boughtBook.id}}</div>
-    <div>Name: {{boughtBook.name}}</div>
+    <div>Name: {{boughtBook.name | titlecase}}</div>
+    <div>Price: {{boughtBook.price | currency :"USD":"symbol"}}</div>
     <div>Qauntity: {{boughtBook.quantity}}</div>
     <button (click)="onAdd($event)">+</button>
     <button (click)="onMinus($event)">-</button>
