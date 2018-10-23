@@ -6,6 +6,7 @@ import {ProductsModule} from './products/products.module';
 import {CartModule} from './cart/cart.module';
 import {SharedModule} from './shared/shared.module';
 import {OrdersModule} from './orders/orders.module';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
